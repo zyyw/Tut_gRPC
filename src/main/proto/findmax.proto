@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.exercise.findmax";
+option java_outer_classname = "FindMaxProto";
+option objc_class_prefix = "HLW";
+
+package FindMax;
+
+// the service definition
+service FindMaxService {
+    rpc FindMax(stream FindMaxRequest) returns (stream FindMaxResponse) {};
+}
+
+// request message
+message FindMaxRequest {
+    int32 currentNumber = 1;
+}
+
+// response message
+message FindMaxResponse {
+    int32 currentMax = 1;
+}

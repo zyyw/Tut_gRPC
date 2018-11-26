@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.exercise.BiDiStreaming";
+option java_outer_classname = "GreetEveryoneProto";
+option objc_class_prefix = "HLW";
+
+package BiDiStreaming;
+
+// the service definition
+service GreetEveryoneService {
+    rpc GreetEveryone(stream GreetEveryoneRequest) returns (stream GreetEveryoneResponse) {};
+}
+
+// request message
+message GreetEveryoneRequest {
+    string firstName = 1;
+    string lastName = 2;
+}
+
+// response message
+message GreetEveryoneResponse {
+    string result = 1;
+}
+

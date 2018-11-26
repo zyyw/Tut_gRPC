@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.exercise.serverstreaming";
+option java_outer_classname = "ServerStreamingProto";
+option objc_class_prefix = "HLW";
+
+package serverstreaming;
+
+message GreetManyTimesRequest {
+    string firstName = 1;
+    string lastName = 2;
+}
+
+message GreetManyTimesResponse {
+    string result = 1;
+}
+
+// the greet service definition
+service GreetService {
+    // server streaming
+    rpc GreetManyTimes(GreetManyTimesRequest) returns (stream GreetManyTimesResponse) {};
+}

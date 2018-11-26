@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.exercise.average";
+option java_outer_classname = "AverageProto";
+option objc_class_prefix = "HLW";
+
+// the service definition
+service AverageService {
+    rpc GetAverage(stream AverageRequest) returns (AverageResponse) {};
+}
+
+// the request message
+message AverageRequest {
+    int32 number = 1;
+}
+
+// the response message
+message AverageResponse {
+    double result = 1;
+}

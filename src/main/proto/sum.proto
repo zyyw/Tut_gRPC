@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.exercise.sum";
+option java_outer_classname = "SumProto";
+option objc_class_prefix = "HLW";
+
+// the service definition
+service SumService {
+    // calculate the sum of two integer
+    rpc GetSum(SumRequest) returns (SumResponse) {};
+}
+
+// the request message contains two integers
+message SumRequest {
+    int32 a = 1;
+    int32 b = 2;
+}
+
+// the response message contains the sum of two integer
+message SumResponse {
+    int32 result = 1;
+}
